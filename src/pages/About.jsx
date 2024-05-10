@@ -1,32 +1,34 @@
 import Banner from "../components/Banner";
 import SectionTitle from "../components/SectionTitle";
 import image1 from "../assets/images/image1.jpg";
+import aboutImg from "../assets/images/about.jpg";
+import { PiBuildingOffice } from "react-icons/pi";
+import CountUp from "react-countup";
 const About = () => {
   return (
-    <div>
-      <Banner text={`About Us`} />
+    <section>
+      <Banner image={aboutImg} text={`About Us`} />
       {/* content  */}
       <div className="my-5 md:my-10 flex flex-col md:flex-row justify-between items-center gap-2 ">
         <div className="flex-1 md:mr-20 relative">
           <img src={image1} alt="" />
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-10 bg-black p-8">
-            <h3 className="text-3xl text-white md:text-5xl font-semibold">
-              +75
+          <div className="absolute flex justify-center flex-col items-center gap-2 text-white top-1/2 -translate-y-1/2 right-0 md:-right-10 bg-black p-8">
+            <PiBuildingOffice className="text-3xl" />
+            <h3 className="text-3xl md:text-5xl font-semibold">
+              +<CountUp end={65} duration={5} />
             </h3>
-            <h3 className="uppercase  text-white font-bold">Facilities</h3>
+            <h3 className="uppercase  font-bold">Facilities</h3>
           </div>
         </div>
         <div className="flex-1">
           <SectionTitle
             h3={`DRINKS & BREAKFAST`}
             h1={`Al Inclusive`}
-            text={`Dear Guests,
-
-We are thrilled to welcome you to our hotel! At our establishment, we strive to provide a memorable and comfortable experience for each and every guest. As the manager, I want to assure you that your satisfaction is our top priority. `}
+            text={`Dear Guests, We are thrilled to welcome you to our hotel! At our establishment, we strive to provide a memorable and comfortable experience for each and every guest. As the manager, I want to assure you that your satisfaction is our top priority. `}
           />
-          <div className="chat chat-start pl-10">
+          <div className="chat chat-start pl-10 ">
             <div className="chat-bubble">
-              <p className="text-sm text-gray-400 mt-2">
+              <p className="text-sm text-gray-400 ">
                 From our luxurious amenities to our attentive staff, we are
                 dedicated to ensuring your stay exceeds expectations. Whether
                 you are here for business or leisure, we aim to make your time
@@ -49,7 +51,7 @@ We are thrilled to welcome you to our hotel! At our establishment, we strive to 
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
