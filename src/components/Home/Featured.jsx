@@ -11,7 +11,7 @@ const Featured = () => {
   AOS.init();
   const [docs] = useFetch("featuredrooms");
   return (
-    <div className="flex flex-col md:flex-row items-center gap-2 my-5 md:my-10">
+    <div className="flex flex-col md:flex-row items-center gap-2 my-5 md:my-20">
       <div className="flex-1">
         <SectionTitle
           h3={"BEST FEATURED ROOMS"}

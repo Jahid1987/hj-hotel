@@ -2,7 +2,7 @@ import { Map, Marker } from "pigeon-maps";
 import SectionTitle from "../SectionTitle";
 const Location = () => {
   return (
-    <div className="flex gap-3 flex-col md:flex-row-reverse items-center my-5 md:my-10">
+    <div className="flex gap-3 flex-col md:flex-row-reverse items-center my-5 md:my-20">
       <div data-aos="fade-up" className="flex-1 w-full">
         <Map
           height={300}
