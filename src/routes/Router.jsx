@@ -7,6 +7,8 @@ import Contact from "../pages/Contact";
 import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
 import Bookings from "../pages/Bookings";
+import Featured from "../pages/Featured";
+import PrivateRoute from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookings",
-        element: <Bookings />,
+        element: (
+          <PrivateRoute>
+            <Bookings />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/featured",
+        element: <Featured />,
       },
     ],
   },

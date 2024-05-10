@@ -1,11 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import {
-  FaFacebook,
-  FaGithub,
-  FaGoogle,
-  FaRegEye,
-  FaRegEyeSlash,
-} from "react-icons/fa6";
+import { FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useState } from "react";
@@ -13,12 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import auth from "../../firebase/firebase.config";
 
 const Login = () => {
-  const {
-    signInUser,
-    registerUserWithGoogle,
-    signInWithGitHub,
-    signInWithFacebook,
-  } = useAuth();
+  const { signInUser, registerUserWithGoogle } = useAuth();
   const [isPassword, setIsPassword] = useState(true);
   const location = useLocation();
   const {
@@ -43,28 +32,6 @@ const Login = () => {
   async function handleSignInWithGoogle() {
     try {
       await registerUserWithGoogle();
-      toast.success(`Welcome to Holy Tourism`);
-      navigate(`${location.state || "/"}`);
-    } catch (error) {
-      toast.error("Your credentials wrong!");
-    }
-  }
-
-  // sign in with gitHub
-  async function handleSignInWithGitHub() {
-    try {
-      await signInWithGitHub();
-      toast.success(`Welcome to Holy Tourism`);
-      navigate(`${location.state || "/"}`);
-    } catch (error) {
-      toast.error("Your credentials wrong!");
-    }
-  }
-
-  // sign in with gitHub
-  async function handleSignInWithFacebook() {
-    try {
-      await signInWithFacebook();
       toast.success(`Welcome to Holy Tourism`);
       navigate(`${location.state || "/"}`);
     } catch (error) {
@@ -133,20 +100,6 @@ const Login = () => {
         >
           <FaGoogle className="text-2xl" />
           Log in With Google
-        </button>
-        <button
-          onClick={handleSignInWithFacebook}
-          className="btn btn-outline w-full"
-        >
-          <FaFacebook className="text-2xl" />
-          Log in With Facebook
-        </button>
-        <button
-          onClick={handleSignInWithGitHub}
-          className="btn btn-outline w-full"
-        >
-          <FaGithub className="text-2xl" />
-          Log in With GitHub
         </button>
       </div>
     </div>
