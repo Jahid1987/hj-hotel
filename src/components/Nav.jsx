@@ -1,7 +1,19 @@
-import { NavLink } from "react-router-dom";
-import Button from "./Button";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Nav = () => {
+  const { user, signOutUser } = useAuth();
+
+  // user loggin out
+  async function handleSignOut() {
+    try {
+      await signOutUser();
+      toast.success("Successfully Log out");
+    } catch (error) {
+      toast.error("Something wrong.");
+    }
+  }
   const navLinks = (
     <>
       <li>
@@ -55,7 +67,40 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <Button name="Book now" />
+        {!user && (
+          <div>
+            <Link className="btn btn-link" to="/register">
+              Register
+            </Link>
+            <Link className="btn btn-link" to="/login">
+              Login
+            </Link>
+          </div>
+        )}
+        {user && (
+          <div className="dropdown dropdown-end z-50">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <Link to="/bookings">My Bookings</Link>
+              </li>
+              <li>
+                <a onClick={handleSignOut}>Logout</a>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

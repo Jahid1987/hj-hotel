@@ -7,8 +7,11 @@ import featured5 from "../../assets/images/image12.jpg";
 import featured6 from "../../assets/images/image16.jpg";
 import featured7 from "../../assets/images/image17.jpg";
 import featured8 from "../../assets/images/image18.jpg";
+import useFetch from "../../hooks/useFetch";
 const Featured = () => {
   AOS.init();
+  const [docs, isLoading, error] = useFetch("premiumrooms");
+  console.log(docs, isLoading, error);
   return (
     <div className="flex items-center gap-2 my-5 md:my-10">
       <div className="space-y-2 flex-1">
