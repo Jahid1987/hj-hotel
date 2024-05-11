@@ -1,15 +1,20 @@
-import { useState } from "react";
-import ReactSlider from "react-slider";
+import { useEffect, useState } from "react";
 import BannerContent from "../components/Rooms/BannerContent";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import useFetch from "../hooks/useFetch";
 import Card from "../components/Rooms/Card";
+import { TbCurrencyTaka } from "react-icons/tb";
+import axios from "axios";
 const Rooms = () => {
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
-  const [rooms, isLoading, err] = useFetch("/rooms");
-  console.log(checkIn, checkOut, isLoading, err);
+  const [price, setPrice] = useState(5000);
+  const [rooms, setRooms] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/rooms?status=available&price=${price}`)
+      .then((res) => setRooms(res.data));
+  }, [price]);
   return (
     <div>
       <BannerContent />
@@ -42,16 +47,26 @@ const Rooms = () => {
             <span className="font-medium text-sm">Check Out</span>
             <DatePicker
               className=" p-2 border"
-              selected={checkIn}
+              selected={checkOut}
               onChange={(date) => setCheckOut(date)}
             />
           </div>
           <div className="flex justify-between items-center gap-2">
             <span className="font-medium text-sm">Price</span>
-            <ReactSlider
-              className="horizontal-slider"
-              thumbClassName="example-thumb"
-              trackClassName="example-track"
+            <span className="font-medium text-lg flex items-center">
+              <TbCurrencyTaka />
+              {price}
+            </span>
+          </div>
+          <div>
+            <input
+              type="range"
+              name="price"
+              max="10000"
+              value={price}
+              step="10"
+              onChange={(e) => setPrice(e.target.value)}
+              className="w-full"
             />
           </div>
         </div>
