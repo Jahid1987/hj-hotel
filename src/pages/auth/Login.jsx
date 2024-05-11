@@ -32,7 +32,7 @@ const Login = () => {
   async function handleSignInWithGoogle() {
     try {
       await registerUserWithGoogle();
-      toast.success(`Welcome to Holy Tourism`);
+      toast.success(`Welcome to HJ hotels`);
       navigate(`${location.state || "/"}`);
     } catch (error) {
       toast.error("Your credentials wrong!");

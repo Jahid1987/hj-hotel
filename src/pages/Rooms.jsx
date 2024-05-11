@@ -70,6 +70,7 @@ const Rooms = () => {
             />
           </div>
         </div>
+        {/* right section all rooms are being shown here */}
         <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-5">
           {rooms.map((room) => (
             <Card room={room} key={room._id} />

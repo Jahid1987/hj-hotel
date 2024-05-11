@@ -1,5 +1,5 @@
 import roomsImg from "../../assets/images/rooms.jpg";
-const BannerContent = () => {
+const Banner = () => {
   return (
     <div
       className="grid place-content-center py-10"
@@ -9,19 +9,19 @@ const BannerContent = () => {
     >
       <div className="text-center">
         <h3 className="text-3xl md:text-5xl text-white font-semibold">
-          Search From All Available Rooms
+          Your All Bookings
         </h3>
         <ul className="steps text-white mt-4 md:mt-28 -mb-5">
           <li className="step after:!w-6 after:!h-6 text-sm font-thin step-neutral">
             Search
           </li>
-          <li className="step before:!h-[2px] after:!w-6 after:!h-6 text-sm font-thin">
+          <li className="step before:!h-[2px] after:!w-6 after:!h-6 text-sm font-thin step-neutral">
             Booking
           </li>
-          <li className="step before:!h-[2px] after:!w-6 after:!h-6 text-sm font-thin">
+          <li className="step before:!h-[2px] after:!w-6 after:!h-6 text-sm font-thin step-neutral">
             Checkout
           </li>
-          <li className="step before:!h-[2px] after:!w-6 after:!h-6 text-sm font-thin">
+          <li className="step before:!h-[2px] after:!w-6 after:!h-6 text-sm font-thin step-neutral">
             Thank You
           </li>
         </ul>
@@ -30,4 +30,4 @@ const BannerContent = () => {
   );
 };
 
-export default BannerContent;
+export default Banner;

@@ -1,7 +1,7 @@
 import { MdOutlineRateReview } from "react-icons/md";
-import { PiResizeDuotone } from "react-icons/pi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import areaIcon from "../../assets/icons/icon-plan-grey.svg";
 const Card = ({ room }) => {
   const { category, description, image, price, reviews, size, _id } = room;
   return (
@@ -15,14 +15,14 @@ const Card = ({ room }) => {
         <h2 className="card-title font-light">{category}</h2>
         <div className="flex justify-between">
           <p className="text-sm flex gap-2 items-center">
-            <PiResizeDuotone /> {size} sqr feet
+            <img src={areaIcon} alt="" /> {size} sqr feet
           </p>
           <p className="text-sm flex gap-2 items-center">
-            <MdOutlineRateReview />{" "}
+            <MdOutlineRateReview className="text-xl" />
             {reviews.length ? reviews.length : "No reviews yet"}
           </p>
         </div>
-        <p className="text-sm">{description}</p>
+        <p className="text-sm">{description.substring(0, 50)} ...</p>
 
         <div className="card-actions justify-end ">
           <button className="btn w-full rounded-none border border-gray-400 flex items-center">

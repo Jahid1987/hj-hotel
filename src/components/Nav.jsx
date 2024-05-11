@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Nav = () => {
   const { user, signOutUser } = useAuth();
@@ -9,6 +10,13 @@ const Nav = () => {
   async function handleSignOut() {
     try {
       await signOutUser();
+      await axios.post(
+        "http://localhost:5000/logout",
+        { email: user.email },
+        {
+          withCredentials: true,
+        }
+      );
       toast.success("Successfully Log out");
     } catch (error) {
       toast.error("Something wrong.");
