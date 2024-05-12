@@ -7,23 +7,28 @@ const useFetch = (url) => {
   const [isLoading, setIsloading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await axiosSecure.get(`${url}`);
-        setDocs(data);
-        setError(null);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setIsloading(false);
-      }
+  async function fetchData() {
+    try {
+      setIsloading(true);
+      const { data } = await axiosSecure.get(`${url}`);
+      setDocs(data);
+      setError(null);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setIsloading(false);
     }
+  }
 
+  useEffect(() => {
     fetchData();
   }, [url]);
 
-  return [docs, isLoading, error];
+  // Function to refetch data
+  async function refetchData() {
+    await fetchData();
+  }
+  return { docs, isLoading, error, refetchData };
 };
 
 export default useFetch;

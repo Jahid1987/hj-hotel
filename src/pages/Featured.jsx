@@ -1,7 +1,7 @@
 import useFetch from "../hooks/useFetch";
 
 const Featured = () => {
-  const [docs] = useFetch("/featuredrooms");
+  const { docs } = useFetch("/featuredrooms");
   console.log(docs);
   return (
     <div>

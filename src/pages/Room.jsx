@@ -34,7 +34,9 @@ const Room = () => {
       image,
     };
     try {
-      await axios.post(`http://localhost:5000/bookings`, booking);
+      await axios.post(`http://localhost:5000/bookings`, booking, {
+        withCredentials: true,
+      });
       await axios.patch(`http://localhost:5000/rooms/${_id}`, {
         status: "unavailable",
       });

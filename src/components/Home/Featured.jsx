@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle";
 const Featured = () => {
   AOS.init();
-  const [docs] = useFetch("featuredrooms");
+  const { docs } = useFetch("featuredrooms");
   return (
     <div className="flex flex-col md:flex-row items-center gap-2 my-5 md:my-20">
       <div className="flex-1">

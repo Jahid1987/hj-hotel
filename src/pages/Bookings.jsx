@@ -6,9 +6,12 @@ import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Update from "../components/Bookings/Update";
+import { useState } from "react";
 const Bookings = () => {
   const { user } = useAuth();
-  const [bookings] = useFetch(`/bookings/${user.email}`);
+  const { docs: bookings, refetchData } = useFetch(`/bookings/${user.email}`);
+  const [updateRoom, setUpdateRoom] = useState({});
 
   async function handleDelete(booking) {
     Swal.fire({
@@ -28,6 +31,7 @@ const Bookings = () => {
           await axios.patch(`http://localhost:5000/rooms/${booking.room_id}`, {
             status: "available",
           });
+          await refetchData();
           Swal.fire({
             title: "Room Cancelled!",
             text: "Your room has been Cancelled.",
@@ -39,6 +43,12 @@ const Bookings = () => {
       }
     });
   }
+  // show update modal
+  function showUpdateModal(booking) {
+    setUpdateRoom(booking);
+    document.getElementById("booking-modal").showModal();
+  }
+
   return (
     <div>
       {/* banner  */}
@@ -85,10 +95,10 @@ const Bookings = () => {
                       onClick={() => handleDelete(booking)}
                       className="text-red-400"
                     />
-                    <Link to={`/room/${booking.room_id}`}>
-                      {" "}
-                      <CiEdit className="text-green-400 mb-2" />
-                    </Link>
+                    <CiEdit
+                      onClick={() => showUpdateModal(booking)}
+                      className="text-green-400 mb-2"
+                    />
                   </th>
                 </tr>
               ))}
@@ -96,6 +106,12 @@ const Bookings = () => {
           </table>
         )}
       </div>
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      <dialog id="booking-modal" className="modal">
+        <div className="modal-box h-full md:h-1/2 rounded-none flex flex-col justify-center items-center">
+          <Update refetchData={refetchData} room={updateRoom} />
+        </div>
+      </dialog>
     </div>
   );
 };
