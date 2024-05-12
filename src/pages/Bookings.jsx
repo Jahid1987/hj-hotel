@@ -8,10 +8,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Update from "../components/Bookings/Update";
 import { useState } from "react";
+import Review from "../components/Bookings/Review";
 const Bookings = () => {
   const { user } = useAuth();
   const { docs: bookings, refetchData } = useFetch(`/bookings/${user.email}`);
   const [updateRoom, setUpdateRoom] = useState({});
+  const [roomReview, setRoomReview] = useState({});
 
   async function handleDelete(booking) {
     Swal.fire({
@@ -46,9 +48,13 @@ const Bookings = () => {
   // show update modal
   function showUpdateModal(booking) {
     setUpdateRoom(booking);
-    document.getElementById("booking-modal").showModal();
+    document.getElementById("update-modal").showModal();
   }
-
+  // show review modal
+  function handleReview(booking) {
+    setRoomReview(booking);
+    document.getElementById("review-modal").showModal();
+  }
   return (
     <div>
       {/* banner  */}
@@ -69,6 +75,7 @@ const Bookings = () => {
                 <th>Image</th>
                 <th>Category</th>
                 <th>Booking Date</th>
+                <th>Review</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -90,14 +97,22 @@ const Bookings = () => {
                   </td>
                   <td>{booking.category}</td>
                   <td>{booking.checkIn}</td>
+                  <td>
+                    <button
+                      onClick={() => handleReview(booking)}
+                      className="btn btn-xs flex items-center font-light border-none bg-[#B94545] hover:bg-[#b94545e5] text-white hover:text-black uppercase uppercas"
+                    >
+                      Reviw
+                    </button>
+                  </td>
                   <th className="text-xl md:text-2xl flex flex-col gap-2">
                     <MdDeleteForever
                       onClick={() => handleDelete(booking)}
-                      className="text-red-400"
+                      className="text-red-600"
                     />
                     <CiEdit
                       onClick={() => showUpdateModal(booking)}
-                      className="text-green-400 mb-2"
+                      className="text-green-600 mb-2"
                     />
                   </th>
                 </tr>
@@ -106,10 +121,16 @@ const Bookings = () => {
           </table>
         )}
       </div>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <dialog id="booking-modal" className="modal">
+      {/* Update modal  */}
+      <dialog id="update-modal" className="modal">
         <div className="modal-box h-full md:h-1/2 rounded-none flex flex-col justify-center items-center">
           <Update refetchData={refetchData} room={updateRoom} />
+        </div>
+      </dialog>
+      {/* Review add modal  */}
+      <dialog id="review-modal" className="modal">
+        <div className="modal-box h-full md:h-1/2 rounded-none flex flex-col justify-center items-center">
+          <Review roomReview={roomReview} />
         </div>
       </dialog>
     </div>

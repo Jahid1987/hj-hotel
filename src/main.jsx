@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
+import "@smastrom/react-rating/style.css";
 import router from "./routes/Router.jsx";
 import AuthProvider from "./provider/AuthProvider.jsx";
 

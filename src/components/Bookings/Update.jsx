@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 const Update = ({ room, refetchData }) => {
   const [checkIn, setCheckIn] = useState(new Date());
   const { image } = room;
@@ -14,6 +15,7 @@ const Update = ({ room, refetchData }) => {
       },
       { withCredentials: true }
     );
+    toast.success("Room is updated!");
     refetchData();
   }
   return (
