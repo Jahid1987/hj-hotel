@@ -13,6 +13,7 @@ const Review = ({ roomReview }) => {
     const userReview = {
       roomId: roomReview.room_id,
       user: user.displayName,
+      image: user.photoURL,
       date: new Date().toLocaleDateString(),
       rating: parseInt(rating),
       comment: review,

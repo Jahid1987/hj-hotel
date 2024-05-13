@@ -23,7 +23,7 @@ const Reviews = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -36,9 +36,6 @@ const Reviews = () => {
           slidesToScroll: 1,
         },
       },
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ],
   };
   return (
@@ -50,7 +47,7 @@ const Reviews = () => {
           text={`Explore the stories, experiences, and insights shared by our valued guests. From glowing testimonials to cherished memories, our footer section is a treasure trove of firsthand accounts. Dive into the world of our accommodations through the eyes of those who have walked our halls, savored our amenities, and felt the warmth of our hospitality. Join the conversation and discover what makes us truly special.`}
         />
       </div>
-      <div className="pb-4">
+      <div className="w-[95%] m-auto">
         <Slider {...settings}>
           {reviews.map((review) => (
             <Review key={review._id} review={review} />
