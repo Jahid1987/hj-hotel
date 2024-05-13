@@ -1,5 +1,5 @@
 import roomsImg from "../../assets/images/rooms.jpg";
-const BannerContent = () => {
+const BannerContent = ({ headline }) => {
   return (
     <div
       className="grid place-content-center py-10"
@@ -9,7 +9,7 @@ const BannerContent = () => {
     >
       <div className="text-center">
         <h3 className="text-3xl md:text-5xl text-white font-semibold">
-          Search From All Available Rooms
+          {headline}
         </h3>
         <ul className="steps text-white mt-4 md:mt-28 -mb-5">
           <li className="step after:!w-6 after:!h-6 text-sm font-thin step-neutral">

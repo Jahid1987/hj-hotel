@@ -6,8 +6,8 @@ function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900">
       <div className="max-w-[1440px] mx-auto px-2">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
-          <div className="sm:col-span-2">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4 sm:gap-y-10 ">
+          <div className="col-span-2 md:col-span-2">
             <h1 className="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">
               Subscribe our newsletter to get update.
             </h1>
@@ -26,7 +26,7 @@ function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="col-span-1">
             <p className="font-semibold text-gray-800 dark:text-white">
               Quick Link
             </p>
@@ -53,37 +53,37 @@ function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="col-span-1">
             <p className="font-semibold text-gray-800 dark:text-white">
-              Industries
+              Services
             </p>
 
             <div className="flex flex-col items-start mt-5 space-y-2">
-              <a
-                href="#"
+              <Link
+                to="/rooms"
                 className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
-                Retail & E-Commerce
-              </a>
-              <a
-                href="#"
+                All Rooms
+              </Link>
+              <Link
+                to="/featured"
                 className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
-                Information Technology
-              </a>
-              <a
-                href="#"
+                Featured Rooms
+              </Link>
+              <Link
+                to="/bookings"
                 className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
               >
-                Finance & Insurance
-              </a>
+                My Bookings
+              </Link>
             </div>
           </div>
         </div>
 
         <hr className="my-6 border-gray-200 md:my-8 dark:border-gray-700" />
 
-        <div className="flex px items-center justify-between">
+        <div className="flex px items-center justify-between bg-black text-white p-3">
           <a className="text-xl font-semibold">HJ Hotel</a>
 
           <div className="flex gap-3 text-xl">

@@ -11,26 +11,29 @@ const Rooms = () => {
   const [checkOut, setCheckOut] = useState(new Date());
   const [price, setPrice] = useState(5000);
   const [rooms, setRooms] = useState([]);
+  // fetching data using cutom hook which is secured by jwt
   useEffect(() => {
     axiosSecure.get(`/rooms?status=available&price=${price}`).then((res) => {
       setRooms(res.data);
     });
   }, [price]);
-
+  // handle sorting
+  function handleSort(e) {
+    console.log(e.target.value);
+  }
   return (
     <div>
-      <BannerContent />
+      <BannerContent headline={`Search From All Available Rooms`} />
       {/* banner Funtionality content  */}
       <div className=" w-full bg-neutral text-center py-6">
-        <select className="select rounded-none">
-          <option disabled defaultValue={"Sort"}>
-            Sort By
-          </option>
-          <option>Price (High to Low)</option>
-          <option>Ratings</option>
-          <option>Bart</option>
-          <option>Lisa</option>
-          <option>Maggie</option>
+        <select
+          className="select rounded-none"
+          defaultValue={"Sort By"}
+          onChange={handleSort}
+        >
+          <option disabled>Sort By</option>
+          <option value="rating">Ratings</option>
+          <option>Offers</option>
         </select>
       </div>
       <div className="grid place-items-start gap-2 md:gap-4 grid-cols-1 md:grid-cols-3 my-5 md:my-20">

@@ -8,11 +8,11 @@ function Newsletter() {
   return (
     <div>
       <div className="flex gap-3 md:gap-5 flex-col md:flex-row-reverse items-center my-5 md:my-20 lg:w-3/4 mx-auto">
-        <div data-aos="fade-up" className="flex-1 w-full">
+        <div className="flex-1 w-full">
           <SectionTitle
             h3={`You should not miss it`}
             h1={`Subscribe to Our Newsletter`}
-            text={`Elevate your inbox with exclusive updates, insider tips, and irresistible offers delivered straight to your fingertips. Join our vibrant community of travelers and enthusiasts as we embark on a journey filled with inspiration, discovery, and unforgettable experiences. Be the first to know about new destinations, exciting promotions, and insider insights curated just for you. Don't miss out – subscribe today and let the adventure begin!`}
+            text={`Elevate your inbox with exclusive updates, insider tips, and irresistible offers delivered straight to your fingertips. Join our vibrant community of travelers and enthusiasts as we embark on a journey filled with inspiration, discovery, and unforgettable experiences. Don't miss out – subscribe today and let the adventure begin!`}
           />
         </div>
         <div

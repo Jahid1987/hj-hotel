@@ -14,8 +14,7 @@ const Featured = () => {
         <SectionTitle
           h3={"BEST FEATURED ROOMS"}
           h1={"Reserve a Suite"}
-          text={`Quisque eu euismod arcu. Morbi et dapibus diam, sed interdum velit.
-        Proin tempor nunc vel nisl condimentum, nec tempor risus.`}
+          text={`Welcome to a world where luxury knows no bounds – welcome to HJ Hotel's featured product selection.`}
         />
         <div className="pt-3 grid gap-3 md:gap-5 grid-cols-1 md:grid-cols-2">
           {featuredRooms.map((room) => (
@@ -23,9 +22,9 @@ const Featured = () => {
           ))}
         </div>
       </div>
-      <div className="flex-1" data-aos="fade-up">
+      <div className="flex-1">
         <img src={featured8} alt="" />
-        <div className="mt-3">
+        <div data-aos="fade-up" className="mt-3">
           <Link to="/featured">
             <Button name="Book Our Featured Room" />
           </Link>

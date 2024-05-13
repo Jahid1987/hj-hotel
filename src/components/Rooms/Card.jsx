@@ -25,10 +25,13 @@ const Card = ({ room }) => {
         <p className="text-sm">{description.substring(0, 50)} ...</p>
 
         <div className="card-actions justify-end ">
-          <button className="btn w-full rounded-none border border-gray-400 flex items-center">
+          <Link
+            className="btn w-full rounded-none border border-gray-400 flex items-center"
+            to={`/room/${_id}`}
+          >
             Book Now for <TbCurrencyTaka className="-mr-2 text-lg" />
             {price}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

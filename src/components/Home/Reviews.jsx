@@ -8,7 +8,6 @@ import useFetch from "../../hooks/useFetch";
 const Reviews = () => {
   const { docs: reviews } = useFetch("/reviews");
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -45,7 +44,7 @@ const Reviews = () => {
         <SectionTitle
           h3={"WHAT OUR GUESTS SAY"}
           h1={"Hear from Our Guests"}
-          text={`Explore the stories, experiences, and insights shared by our valued guests. From glowing testimonials to cherished memories, our footer section is a treasure trove of firsthand accounts. Dive into the world of our accommodations through the eyes of those who have walked our halls, savored our amenities, and felt the warmth of our hospitality. Join the conversation and discover what makes us truly special.`}
+          text={`Explore the stories, experiences, and insights shared by our valued guests. From glowing testimonials to cherished memories, our footer section is a treasure trove of firsthand accounts. Dive into the world of our accommodations through the eyes of those who have walked our halls.`}
         />
       </div>
       <div className="w-[95%] m-auto">

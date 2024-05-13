@@ -64,7 +64,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-50"
+            className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 w-52 z-50"
           >
             {navLinks}
           </ul>
@@ -79,10 +79,10 @@ const Nav = () => {
       <div className="navbar-end">
         {!user && (
           <div>
-            <Link className="btn btn-link" to="/register">
+            <Link className="font-light underline ml-4" to="/register">
               Register
             </Link>
-            <Link className="btn btn-link" to="/login">
+            <Link className="font-light underline ml-4" to="/login">
               Login
             </Link>
           </div>

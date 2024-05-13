@@ -16,7 +16,7 @@ const Location = () => {
         <SectionTitle
           h3={"wide view of the sea"}
           h1={"Have benefite of the locatoin"}
-          text={` Welcome to Laboni Point, nestled along Laboni Beach Rd in Cox's Bazar 4700. Here, where the azure waters of the Bay of Bengal meet golden sands, discover our coastal haven. Immerse yourself in the natural beauty of Bangladesh's longest sandy beach, just steps away from our doorstep. Whether you seek seaside serenity, thrilling water sports, or vibrant local culture, Laboni Point is your gateway to an unforgettable coastal escape. Indulge in breathtaking sunsets, savor local delicacies, and create cherished memories in this idyllic seaside paradise. Experience the essence of Cox's Bazar at Laboni Point – your oasis by the sea. `}
+          text={` Welcome to Laboni Point, nestled along Laboni Beach Rd in Cox's Bazar 4700. Here, where the azure waters of the Bay of Bengal meet golden sands, discover our coastal haven.  Whether you seek seaside serenity, thrilling water sports, or vibrant local culture, Laboni Point is your gateway to an unforgettable coastal escape. `}
         />
       </div>
     </div>
