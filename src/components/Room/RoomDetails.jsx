@@ -43,7 +43,7 @@ const RoomDetails = ({ room }) => {
       <div className="space-y-2">
         <h3 className="font-light text-xl">Special Offers: </h3>
         <p className="font-light">
-          {special_offers.length
+          {special_offers?.length
             ? special_offers[0]
             : "No Special Offer is Applicable"}
         </p>

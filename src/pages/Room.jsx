@@ -5,10 +5,11 @@ import Banner from "../components/Room/Banner";
 import { useState } from "react";
 import RoomDetails from "../components/Room/RoomDetails";
 import useAuth from "../hooks/useAuth";
-import axios from "axios";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Room = () => {
+  const axiosSecure = useAxiosSecure();
   const room = useLoaderData();
   const [checkIn, setCheckIn] = useState(new Date());
   // const [checkOut, setCheckOut] = useState(new Date());
@@ -34,10 +35,8 @@ const Room = () => {
       image,
     };
     try {
-      await axios.post(`http://localhost:5000/bookings`, booking, {
-        withCredentials: true,
-      });
-      await axios.patch(`http://localhost:5000/rooms/${_id}`, {
+      await axiosSecure.post(`/bookings`, booking);
+      await axiosSecure.patch(`/rooms/${_id}`, {
         status: "unavailable",
       });
       toast.success("Room is added!");
@@ -46,7 +45,6 @@ const Room = () => {
       console.log(err);
       toast.warning("OOps! Something Wrong!");
     }
-    // console.log(data);
   }
   return (
     <div>

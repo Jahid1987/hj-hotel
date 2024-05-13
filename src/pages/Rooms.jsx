@@ -4,15 +4,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Card from "../components/Rooms/Card";
 import { TbCurrencyTaka } from "react-icons/tb";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 const Rooms = () => {
+  const axiosSecure = useAxiosSecure();
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
   const [price, setPrice] = useState(5000);
   const [rooms, setRooms] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/rooms?status=available&price=${price}`)
+    axiosSecure
+      .get(`/rooms?status=available&price=${price}`)
       .then((res) => setRooms(res.data));
   }, [price]);
   return (
@@ -31,7 +32,6 @@ const Rooms = () => {
           <option>Maggie</option>
         </select>
       </div>
-
       <div className="grid place-items-start gap-2 md:gap-4 grid-cols-1 md:grid-cols-3 my-5 md:my-20">
         {/* left section */}
         <div className="md:col-span-1 space-y-3 border w-full p-4">

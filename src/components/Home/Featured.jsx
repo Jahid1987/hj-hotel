@@ -9,9 +9,10 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle";
 const Featured = () => {
   AOS.init();
-  const { docs } = useFetch("featuredrooms");
+  const { docs: featuredRooms } = useFetch("/featuredrooms");
+
   return (
-    <div className="flex flex-col md:flex-row items-center gap-2 my-5 md:my-20">
+    <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5 my-5 md:my-20">
       <div className="flex-1">
         <SectionTitle
           h3={"BEST FEATURED ROOMS"}
@@ -19,8 +20,8 @@ const Featured = () => {
           text={`Quisque eu euismod arcu. Morbi et dapibus diam, sed interdum velit.
         Proin tempor nunc vel nisl condimentum, nec tempor risus.`}
         />
-        <div className="pt-3 grid gap-2 grid-cols-1 md:grid-cols-2">
-          {docs.map((room) => (
+        <div className="pt-3 grid gap-3 md:gap-5 grid-cols-1 md:grid-cols-2">
+          {featuredRooms.map((room) => (
             <FeaturedCard room={room} key={room._id} />
           ))}
         </div>

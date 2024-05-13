@@ -78,13 +78,13 @@ const AuthProvider = ({ children }) => {
       // setting and deleting token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
+          .post("https://hj-hotel.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log(res.data));
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
+          .post("https://hj-hotel.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => console.log(res.data));

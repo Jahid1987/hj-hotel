@@ -4,16 +4,18 @@ import useAuth from "../hooks/useAuth";
 import useFetch from "../hooks/useFetch";
 import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
-import axios from "axios";
 import Swal from "sweetalert2";
 import Update from "../components/Bookings/Update";
 import { useState } from "react";
 import Review from "../components/Bookings/Review";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 const Bookings = () => {
   const { user } = useAuth();
   const { docs: bookings, refetchData } = useFetch(`/bookings/${user.email}`);
+
   const [updateRoom, setUpdateRoom] = useState({});
   const [roomReview, setRoomReview] = useState({});
+  const axiosSecure = useAxiosSecure();
 
   async function handleDelete(booking) {
     Swal.fire({
@@ -27,10 +29,8 @@ const Bookings = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/bookings/${booking._id}`, {
-            withCredentials: true,
-          });
-          await axios.patch(`http://localhost:5000/rooms/${booking.room_id}`, {
+          await axiosSecure.delete(`/bookings/${booking._id}`);
+          await axiosSecure.patch(`/rooms/${booking.room_id}`, {
             status: "available",
           });
           await refetchData();

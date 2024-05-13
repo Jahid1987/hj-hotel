@@ -1,20 +1,17 @@
-import axios from "axios";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const Update = ({ room, refetchData }) => {
   const [checkIn, setCheckIn] = useState(new Date());
+  const axiosSecure = useAxiosSecure();
   const { image } = room;
 
   async function handleUpdate() {
-    await axios.patch(
-      `http://localhost:5000/bookings/${room._id}`,
-      {
-        checkIn: checkIn.toLocaleDateString(),
-      },
-      { withCredentials: true }
-    );
+    await axiosSecure.patch(`/bookings/${room._id}`, {
+      checkIn: checkIn.toLocaleDateString(),
+    });
     toast.success("Room is updated!");
     refetchData();
   }

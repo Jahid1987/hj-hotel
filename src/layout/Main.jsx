@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import SpecilaOffer from "../components/SpecilaOffer";
 
 const Main = () => {
   return (
@@ -21,6 +22,7 @@ const Main = () => {
       {/* Footer  */}
       <Footer />
       <ToastContainer />
+      <SpecilaOffer />
     </div>
   );
 };

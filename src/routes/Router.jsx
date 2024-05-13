@@ -10,11 +10,13 @@ import Bookings from "../pages/Bookings";
 import Featured from "../pages/Featured";
 import PrivateRoute from "./PrivateRouter";
 import Room from "../pages/Room";
+import Errorpage from "../pages/Errorpage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <Errorpage />,
     children: [
       {
         index: true,
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/room/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/rooms/${params.id}`),
+          fetch(`https://hj-hotel.vercel.app/rooms/${params.id}`),
         element: <Room />,
       },
       {
