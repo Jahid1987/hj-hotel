@@ -7,7 +7,7 @@ function Newsletter() {
 
   return (
     <div>
-      <div className="flex gap-3 md:gap-5 flex-col md:flex-row-reverse items-center my-5 md:my-20 md:w-3/4 mx-auto">
+      <div className="flex gap-3 md:gap-5 flex-col md:flex-row-reverse items-center my-5 md:my-20 lg:w-3/4 mx-auto">
         <div data-aos="fade-up" className="flex-1 w-full">
           <SectionTitle
             h3={`You should not miss it`}

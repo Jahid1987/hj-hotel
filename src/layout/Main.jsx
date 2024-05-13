@@ -2,11 +2,14 @@ import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { ToastContainer } from "react-toastify";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 
 import "react-toastify/dist/ReactToastify.css";
 import SpecilaOffer from "../components/SpecilaOffer";
 
 const Main = () => {
+  AOS.init();
   return (
     <div>
       {/* nav bar  */}

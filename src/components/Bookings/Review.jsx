@@ -47,12 +47,17 @@ const Review = ({ roomReview }) => {
             className="textarea textarea-bordered textarea-lg w-full"
           ></textarea>
           {/* if there is a button in form, it will close the modal */}
-          <button
-            onClick={handleReview}
-            className="btn btn-sm md:btn-md rounded-none border-none bg-[#B94545] hover:bg-[#b94545e5] text-white hover:text-black uppercase uppercas font-light"
-          >
-            Submit Review
-          </button>
+          <div className="space-x-10">
+            <button className="btn btn-sm md:btn-md rounded-none border-none btn-error uppercase uppercas font-light">
+              Cancel
+            </button>
+            <button
+              onClick={handleReview}
+              className="btn btn-sm md:btn-md rounded-none border-none bg-[#B94545] hover:bg-[#b94545e5] text-white hover:text-black uppercase uppercas font-light"
+            >
+              Submit Review
+            </button>
+          </div>
         </form>
       </div>
     </div>

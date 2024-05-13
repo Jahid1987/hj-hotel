@@ -1,5 +1,3 @@
-import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
 import Button from "../Button";
 // featured images
 import featured8 from "../../assets/images/image18.jpg";
@@ -8,7 +6,6 @@ import FeaturedCard from "./FeaturedCard";
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle";
 const Featured = () => {
-  AOS.init();
   const { docs: featuredRooms } = useFetch("/featuredrooms");
 
   return (

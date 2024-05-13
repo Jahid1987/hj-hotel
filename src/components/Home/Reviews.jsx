@@ -20,8 +20,6 @@ const Reviews = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -45,7 +43,7 @@ const Reviews = () => {
   };
   return (
     <div className="my-5 md:my-20">
-      <div className="text-center w-2/3 mx-auto mb-5 md:mb-10">
+      <div className="text-center md:w-2/3 mx-auto mb-5 md:mb-10">
         <SectionTitle
           h3={"WHAT OUR GUESTS SAY"}
           h1={"Hear from Our Guests"}

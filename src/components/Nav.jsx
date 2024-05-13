@@ -11,7 +11,7 @@ const Nav = () => {
     try {
       await signOutUser();
       await axios.post(
-        "http://localhost:5000/logout",
+        "https://hj-hotel.vercel.app/logout",
         { email: user.email },
         {
           withCredentials: true,

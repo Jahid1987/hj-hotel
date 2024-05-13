@@ -73,21 +73,28 @@ const AuthProvider = ({ children }) => {
     const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
-      setUser(currentUser);
-      setIsLoading(false);
+
       // setting and deleting token
       if (currentUser) {
         axios
           .post("https://hj-hotel.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
-          .then((res) => console.log(res.data));
+          .then((res) => {
+            console.log(res.data);
+            setUser(currentUser);
+            setIsLoading(false);
+          });
       } else {
         axios
           .post("https://hj-hotel.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
-          .then((res) => console.log(res.data));
+          .then((res) => {
+            console.log(res.data);
+            setUser(currentUser);
+            setIsLoading(false);
+          });
       }
     });
     return () => unsubcribe();

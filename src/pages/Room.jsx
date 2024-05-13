@@ -12,7 +12,7 @@ const Room = () => {
   const axiosSecure = useAxiosSecure();
   const room = useLoaderData();
   const [checkIn, setCheckIn] = useState(new Date());
-  // const [checkOut, setCheckOut] = useState(new Date());
+  const [checkOut, setCheckOut] = useState(new Date());
   const navigate = useNavigate();
   const { user } = useAuth();
   const { category, image, price, _id } = room;
@@ -29,6 +29,7 @@ const Room = () => {
   async function handleConfirmBooking() {
     const booking = {
       checkIn: checkIn.toLocaleDateString(),
+      checkOut: checkOut.toLocaleDateString(),
       user_email: user.email,
       room_id: _id,
       category,
@@ -62,14 +63,14 @@ const Room = () => {
               onChange={(date) => setCheckIn(date)}
             />
           </div>
-          {/* <div className="flex justify-between items-center gap-2">
+          <div className="flex justify-between items-center gap-2">
             <span className="font-medium text-sm">Check Out</span>
             <DatePicker
               className=" p-2 border"
               selected={checkOut}
               onChange={(date) => setCheckOut(date)}
             />
-          </div> */}
+          </div>
           <button
             onClick={handleBooking}
             className="w-full btn btn-sm md:btn-md rounded-none border-none bg-[#B94545] hover:bg-[#b94545e5] text-white hover:text-black uppercase uppercas"

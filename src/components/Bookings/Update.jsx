@@ -12,8 +12,8 @@ const Update = ({ room, refetchData }) => {
     await axiosSecure.patch(`/bookings/${room._id}`, {
       checkIn: checkIn.toLocaleDateString(),
     });
+    await refetchData();
     toast.success("Room is updated!");
-    refetchData();
   }
   return (
     <div className="w-full h-full flex flex-col justify-between space-y-3 md:space-y-5">

@@ -9,15 +9,33 @@ import Update from "../components/Bookings/Update";
 import { useState } from "react";
 import Review from "../components/Bookings/Review";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import moment from "moment";
+import { toast } from "react-toastify";
 const Bookings = () => {
   const { user } = useAuth();
-  const { docs: bookings, refetchData } = useFetch(`/bookings/${user.email}`);
+  const {
+    docs: bookings,
+    refetchData,
+    isLoading,
+  } = useFetch(`/bookings/${user.email}`);
 
   const [updateRoom, setUpdateRoom] = useState({});
   const [roomReview, setRoomReview] = useState({});
   const axiosSecure = useAxiosSecure();
-
+  // handle booking room
   async function handleDelete(booking) {
+    const bookingTime = moment(booking.checkIn);
+    const currentTime = moment();
+    const timeDifference = moment.duration(bookingTime.diff(currentTime));
+    const timeDifferenceInHours =
+      timeDifference.days() * 24 + timeDifference.hours();
+
+    if (timeDifferenceInHours < 24) {
+      toast.warning(
+        "Sorry! You had to cancel booking at least 24 hours earlier."
+      );
+      return;
+    }
     Swal.fire({
       title: "Sure to Cancel?",
       text: "You won't be able to get this!",
@@ -25,7 +43,7 @@ const Bookings = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Cancel it Anyway!",
+      confirmButtonText: "Cancel Booking Anyway!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
@@ -54,6 +72,9 @@ const Bookings = () => {
   function handleReview(booking) {
     setRoomReview(booking);
     document.getElementById("review-modal").showModal();
+  }
+  if (isLoading) {
+    return <p>Loading data ...</p>;
   }
   return (
     <div>

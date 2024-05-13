@@ -1,9 +1,9 @@
 const Review = ({ review }) => {
   // console.log(review);
   return (
-    <div className=" h-80 w-[90%]  flex flex-col justify-between mx-auto p-8 bg-white rounded-md shadow-lg dark:bg-gray-800  my-5">
+    <div className="h-80 max-w-[90%] flex flex-col justify-between mx-auto p-8 bg-white rounded-md shadow-lg dark:bg-gray-800  my-5">
       <p className="leading-loose text-gray-500 dark:text-gray-400">
-        “{review.comment.substring(0, 200)}...”
+        “{review.comment.substring(0, 100)}...”
       </p>
 
       <div className="flex items-center mt-6">
