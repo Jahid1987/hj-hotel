@@ -17,9 +17,6 @@ const Review = ({ review }) => {
           <h1 className="font-semibold text-gray-800 dark:text-white">
             {review.user}
           </h1>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            CTO, Robert Consultency
-          </span>
         </div>
       </div>
     </div>

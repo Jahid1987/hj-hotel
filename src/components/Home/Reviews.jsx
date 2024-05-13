@@ -8,6 +8,7 @@ import useFetch from "../../hooks/useFetch";
 const Reviews = () => {
   const { docs: reviews } = useFetch("/reviews");
   const settings = {
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -40,7 +41,7 @@ const Reviews = () => {
   };
   return (
     <div className="my-5 md:my-20">
-      <div className="text-center md:w-2/3 mx-auto mb-5 md:mb-10">
+      <div className="text-center lg:w-3/4 mx-auto mb-5 md:mb-10">
         <SectionTitle
           h3={"WHAT OUR GUESTS SAY"}
           h1={"Hear from Our Guests"}
@@ -49,9 +50,11 @@ const Reviews = () => {
       </div>
       <div className="w-[95%] m-auto">
         <Slider {...settings}>
-          {reviews.map((review) => (
-            <Review key={review._id} review={review} />
-          ))}
+          {!reviews?.length > 0 ? (
+            <p>loading data...</p>
+          ) : (
+            reviews.map((review) => <Review key={review._id} review={review} />)
+          )}
         </Slider>
       </div>
     </div>
