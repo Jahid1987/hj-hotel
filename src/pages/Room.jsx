@@ -52,6 +52,7 @@ const Room = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{category}</title>
+        <meta name="description" content={room.description}></meta>
       </Helmet>
       <Banner room={room} />
       <div className="grid place-items-start gap-2 md:gap-4 grid-cols-1 md:grid-cols-3 my-5 md:my-20">

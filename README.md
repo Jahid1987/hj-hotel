@@ -1,14 +1,17 @@
-primary color: #B94545
-every section spacing: my-5 md:my-20
+# HJ Hotel
 
-Neet to add somethng to about up page in the bottom
+## Live link: [https://hj-hotel-b96ba.web.app/]
 
-# Main Features in this project
+## Category: assignment_category_0004
+
+## Main Features in this project
 
 - User can finde room according his budget
-- user can finde room according to rating
-
-# Technology Applied
+- user will be able to book with check in and check out date
+- user will be able to cancel his/her booking prior to 1 day of booking date
+- if user wants he can find featured rooms from our feature section
+- user will be able to subscribe for news later( this section is under development)
+- user can finde room according to rating (this section is under development)
 
 ## JWT token is used
 
