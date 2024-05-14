@@ -99,7 +99,7 @@ const AuthProvider = ({ children }) => {
     });
     return () => unsubcribe();
   }, [user?.email]);
-  console.log(user);
+  // console.log(user);
   const authInfo = {
     user,
     isLoading,
