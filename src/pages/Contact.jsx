@@ -23,8 +23,9 @@ const Contact = () => {
               Reception Always Open
             </h3>
             <p className="text-sm text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              At HJ Hotel, our commitment to your comfort knows no bounds. Our
+              dedicated reception team stands ready to welcome you with open
+              arms at any hour, day or night.
             </p>
           </div>
         </div>
@@ -41,8 +42,9 @@ const Contact = () => {
               Online Reservations
             </h3>
             <p className="text-sm text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              Effortlessly secure your dream stay from the comfort of your own
+              home or on the go, ensuring a seamless start to your journey with
+              just a few clicks
             </p>
           </div>
         </div>
@@ -53,7 +55,7 @@ const Contact = () => {
           <SectionTitle
             h3={`CONTACT US`}
             h1={`Get In Touch`}
-            text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porttitor tellus vel mauris scelerisque accumsan. Maecenas quis nunc sed sapien dignissim pulvinar. Se d at gravida.`}
+            text={`Your Direct Line to Personalized Assistance and Supportive Guidance. Whether you have inquiries, feedback, or special requests, our dedicated team is here to provide prompt and attentive assistance.`}
           />
           <Button name={`View Price`} />
         </div>
