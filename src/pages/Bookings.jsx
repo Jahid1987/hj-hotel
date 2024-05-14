@@ -3,7 +3,6 @@ import Banner from "../components/Bookings/Banner";
 import useAuth from "../hooks/useAuth";
 import useFetch from "../hooks/useFetch";
 import { MdDeleteForever } from "react-icons/md";
-import { CiEdit } from "react-icons/ci";
 import Swal from "sweetalert2";
 import Update from "../components/Bookings/Update";
 import { useState } from "react";
