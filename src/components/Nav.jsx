@@ -109,7 +109,9 @@ const Nav = () => {
                 <a onClick={handleSignOut}>Logout</a>
               </li>
               <li>
-                <a>Profile Of {user.displayName}</a>
+                <Link to="/profile">
+                  <a>Profile Of {user.displayName}</a>
+                </Link>
               </li>
             </ul>
           </div>

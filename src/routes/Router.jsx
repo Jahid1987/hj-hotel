@@ -11,6 +11,7 @@ import Featured from "../pages/Featured";
 import PrivateRoute from "./PrivateRouter";
 import Room from "../pages/Room";
 import Errorpage from "../pages/Errorpage";
+import Profile from "../pages/auth/Profile";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/bookings",
