@@ -97,6 +97,7 @@ const Bookings = () => {
                 <th>Category</th>
                 <th>Booking Date</th>
                 <th>Review</th>
+                <th>Update Time</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -126,14 +127,18 @@ const Bookings = () => {
                       Reviw
                     </button>
                   </td>
-                  <th className="text-xl md:text-2xl flex flex-col gap-2">
+                  <td>
+                    <button
+                      onClick={() => showUpdateModal(booking)}
+                      className="btn btn-xs flex items-center font-light border-none bg-[#B94545] hover:bg-[#b94545e5] text-white hover:text-black uppercase uppercas"
+                    >
+                      Update Date
+                    </button>
+                  </td>
+                  <th className="text-xl md:text-2xl ">
                     <MdDeleteForever
                       onClick={() => handleDelete(booking)}
                       className="text-red-600"
-                    />
-                    <CiEdit
-                      onClick={() => showUpdateModal(booking)}
-                      className="text-green-600 mb-2"
                     />
                   </th>
                 </tr>
