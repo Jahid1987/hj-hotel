@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Button";
 
 const Slide = ({ image }) => {
@@ -22,7 +23,9 @@ const Slide = ({ image }) => {
             </p>
           </div>
           <div data-aos="fade-left">
-            <Button name="Continue" />
+            <Link to="/rooms">
+              <Button name="Continue" />
+            </Link>
           </div>
         </div>
       </div>
